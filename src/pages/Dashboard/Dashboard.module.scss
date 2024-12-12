@@ -1,0 +1,17 @@
+.dashboard {
+  h1 {
+    margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  :global(.ant-card) {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    transition: var(--transition-base);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
+} 
