@@ -2,16 +2,43 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+
+    .header-left {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        min-width: 0;
+
+        .ant-input-affix-wrapper {
+            flex: 1;
+            max-width: 350px;
+        }
+    }
+
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .ant-space {
+            align-items: center;
+        }
+
+        @media (max-width: 576px) {
+            gap: 8px;
+        }
+    }
 }
+
 .logoContainer {
+    padding: 10px 16px;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+
     img {
-        height: 32px;
-        margin: 16px;
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 6px;
+        max-width: 100%;
+        height: auto;
     }
 }

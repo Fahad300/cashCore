@@ -1,17 +1,53 @@
 .dashboard {
-  h1 {
+  .header {
     margin-bottom: 24px;
-    font-size: 24px;
-    font-weight: 500;
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .subtitle {
+      margin: 8px 0 0;
+      color: rgba(0, 0, 0, 0.45);
+    }
   }
 
-  :global(.ant-card) {
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-    transition: var(--transition-base);
+  .statCol {
+    .statCard {
+      height: 100%;
+      transition: all 0.3s;
 
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      &:hover {
+        transform: translateY(-4px);
+      }
+    }
+  }
+
+  .contentRow {
+    margin-top: 24px;
+  }
+
+  .chartCard,
+  .actionsCard {
+    height: 100%;
+  }
+
+  @media (max-width: 576px) {
+    .header {
+      h1 {
+        font-size: 20px;
+      }
+    }
+
+    .statCard {
+      :global(.ant-statistic-title) {
+        font-size: 14px;
+      }
+      :global(.ant-statistic-content) {
+        font-size: 20px;
+      }
     }
   }
 } 
