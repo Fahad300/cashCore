@@ -1,0 +1,182 @@
+.market {
+    .header {
+        margin-bottom: 24px;
+
+        .title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+
+            h1 {
+                margin: 0;
+                font-size: 24px;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .marketCards {
+        margin-bottom: 24px;
+    }
+
+    .marketTabs {
+        :global {
+            .ant-card-body {
+                padding: 0;
+
+                .ant-tabs {
+                    .ant-tabs-nav {
+                        margin: 0;
+                        padding: 0 24px;
+                    }
+
+                    .ant-tabs-content {
+                        padding: 24px;
+                    }
+                }
+            }
+        }
+    }
+
+    .coinList {
+        .coinItem {
+            padding: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+
+            &:hover {
+                background-color: var(--color-bg-layout);
+            }
+
+            :global {
+                .ant-list-item-meta {
+                    flex: 1;
+                }
+
+                .ant-list-item-action {
+                    margin-left: 48px;
+                    
+                    // Add gap between chart and favorite button
+                    li {
+                        padding: 0 12px;
+                    }
+                }
+            }
+
+            .coinInfo {
+                min-width: 120px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 4px;
+
+                .change {
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+
+                    &[type="success"] {
+                        color: var(--color-success);
+                    }
+
+                    &[type="danger"] {
+                        color: var(--color-error);
+                    }
+                }
+            }
+        }
+    }
+
+    .chartCard {
+        margin-bottom: 24px;
+    }
+
+    .tradingPairs {
+        .filters {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .pairCell {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            .favoriteButton {
+                padding: 0;
+                color: var(--color-warning);
+
+                &:hover {
+                    color: var(--color-warning-hover);
+                }
+            }
+        }
+    }
+
+    @media (max-width: 576px) {
+        .header {
+            h1 {
+                font-size: 20px;
+            }
+
+            .marketStats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .filters {
+            flex-direction: column;
+        }
+    }
+
+    .coinDetails {
+        .priceChart {
+            margin-top: 24px;
+            padding: 16px;
+            background-color: var(--color-bg-layout);
+            border-radius: var(--border-radius);
+        }
+    }
+
+    .favoriteButton {
+        color: var(--color-warning);
+
+        &:hover {
+            color: var(--color-warning-hover);
+        }
+    }
+
+    .coinTable {
+        :global {
+            .ant-table-thead > tr > th {
+                background-color: var(--color-bg-layout);
+            }
+
+            .ant-table-row {
+                transition: var(--transition);
+
+                &:hover {
+                    background-color: var(--color-bg-layout) !important;
+                }
+            }
+        }
+
+        .change {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            justify-content: flex-start;
+
+            &[type="success"] {
+                color: var(--color-success);
+            }
+
+            &[type="danger"] {
+                color: var(--color-error);
+            }
+        }
+    }
+} 

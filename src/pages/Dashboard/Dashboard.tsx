@@ -10,7 +10,8 @@ import {
 import { LineChart, Line, PieChart, Pie, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import type { ColumnsType } from 'antd/es/table';
 import styles from './Dashboard.module.scss';
-import { mockKpiData, mockChartData, mockExpenseCategories, mockTransactions } from '../../data/mockData.ts';
+import { mockKpiData, mockChartData, mockExpenseCategories, mockTransactions } from '../../data/mockData';
+import { KpiData } from '../../data/mockData';
 
 const { useBreakpoint } = Grid;
 const { RangePicker } = DatePicker;
@@ -31,7 +32,7 @@ const Dashboard = () => {
 
   const renderKpiCards = () => (
     <Row gutter={[16, 16]} className={styles.kpiSection}>
-      {mockKpiData.map((kpi, index) => (
+      {mockKpiData.map((kpi: KpiData, index: number) => (
         <Col xs={24} sm={12} lg={8} xl={8} xxl={4} key={index}>
           <Card hoverable className={styles.statCard}>
             <Statistic

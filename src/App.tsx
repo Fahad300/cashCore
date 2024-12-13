@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { ConfigProvider } from 'antd';
-import MainLayout from './layouts/MainLayout/MainLayout.tsx';
-import Dashboard from './pages/Dashboard/Dashboard.tsx';
-import { themes, ThemeType, ThemeMode } from './config/theme.ts';
-import { getStoredTheme, setStoredTheme } from './utils/theme.ts';
-import { syncThemeTokens } from './utils/themeUtils.ts';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import MainLayout from './layouts/MainLayout/MainLayout';
+import Dashboard from './pages/Dashboard/Dashboard';
+import Market from './pages/Market/Market';
+import { themes, ThemeType, ThemeMode } from './config/theme';
+import { getStoredTheme, setStoredTheme } from './utils/theme';
+import { syncThemeTokens } from './utils/themeUtils';
 import './styles/themes/_transitions.scss';
 
 const App = () => {
@@ -30,16 +32,22 @@ const App = () => {
 
     return (
         <ConfigProvider theme={themes[currentTheme].config(themeMode)}>
-            <div className={`app-container ${themes[currentTheme].className} theme-${themeMode}`}>
-                <MainLayout
-                    currentTheme={currentTheme}
-                    themeMode={themeMode}
-                    onThemeChange={handleThemeChange}
-                    onThemeModeChange={handleThemeModeChange}
-                >
-                    <Dashboard />
-                </MainLayout>
-            </div>
+            <Router>
+                <div className={`app-container ${themes[currentTheme].className} theme-${themeMode}`}>
+                    <MainLayout
+                        currentTheme={currentTheme}
+                        themeMode={themeMode}
+                        onThemeChange={handleThemeChange}
+                        onThemeModeChange={handleThemeModeChange}
+                    >
+                        <Routes>
+                            <Route path="/dashboard" element={<Dashboard />} />
+                            <Route path="/market" element={<Market />} />
+                            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+                        </Routes>
+                    </MainLayout>
+                </div>
+            </Router>
         </ConfigProvider>
     );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Drawer, Menu, Divider, theme } from 'antd';
-import { ThemeType, ThemeMode } from '../../config/theme.ts';
+import { ThemeType, ThemeMode } from '../../config/theme';
+import { useNavigate } from 'react-router-dom';
 
 interface MobileMenuProps {
     visible: boolean;
@@ -22,6 +23,16 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
     onThemeModeChange
 }) => {
     const { token } = theme.useToken();
+    const navigate = useNavigate();
+
+    const handleMenuClick = ({ key }: { key: string }) => {
+        if (key.startsWith('/')) {
+            navigate(key);
+            onClose();
+        } else if (key !== 'theme-mode' && key !== 'theme-color') {
+            onClose();
+        }
+    };
 
     return (
         <Drawer
@@ -44,11 +55,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                     border: 'none',
                     background: 'transparent'
                 }}
-                onClick={({ key }) => {
-                    if (key !== 'theme-mode' && key !== 'theme-color') {
-                        onClose();
-                    }
-                }}
+                onClick={handleMenuClick}
             />
         </Drawer>
     );

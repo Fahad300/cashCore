@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import styled from '@emotion/styled';
 import { Layout, Menu, Button, theme, Dropdown, Input, Badge, Avatar, Space, Grid, FloatButton } from 'antd';
 import {
     MenuFoldOutlined,
@@ -13,11 +12,14 @@ import {
     LogoutOutlined,
     SunOutlined,
     MoonOutlined,
-    MenuOutlined
+    MenuOutlined,
+    LineChartOutlined
 } from '@ant-design/icons';
-import { themes, ThemeType, ThemeMode } from '../../config/theme.ts';
-import MobileMenu from './MobileMenu.tsx';
+import { themes, ThemeType, ThemeMode } from '../../config/theme';
+import MobileMenu from './MobileMenu';
 import './header.scss';
+import { useNavigate, useLocation } from 'react-router-dom';
+import type { MenuProps } from 'antd';
 
 const { Header, Sider, Content } = Layout;
 const { useBreakpoint } = Grid;
@@ -37,6 +39,8 @@ const MainLayout: React.FC<MainLayoutProps> = ({
     onThemeChange,
     onThemeModeChange
 }) => {
+    const navigate = useNavigate();
+    const location = useLocation();
     const [collapsed, setCollapsed] = useState(false);
     const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
     const { token } = theme.useToken();
@@ -50,9 +54,16 @@ const MainLayout: React.FC<MainLayoutProps> = ({
 
     const menuItems = [
         {
-            key: '1',
+            key: '/dashboard',
             icon: <DashboardOutlined />,
             label: 'Dashboard',
+            onClick: () => navigate('/dashboard')
+        },
+        {
+            key: '/market',
+            icon: <LineChartOutlined />,
+            label: 'Market',
+            onClick: () => navigate('/market')
         }
     ];
 
@@ -69,9 +80,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({
             key: 'theme-color',
             icon: <BgColorsOutlined />,
             label: 'Theme Colors',
-            children: Object.entries(themes).map(([key, theme]) => ({
+            children: Object.entries(themes).map(([key, themeOption]) => ({
                 key: `theme-${key}`,
-                label: theme.name,
+                label: themeOption.name,
                 onClick: () => onThemeChange(key as ThemeType)
             }))
         },
@@ -93,15 +104,15 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         }
     ];
 
-    const themeMenu = {
-        items: Object.entries(themes).map(([key, theme]) => ({
+    const themeMenu: MenuProps = {
+        items: Object.entries(themes).map(([key, themeOption]) => ({
             key,
-            label: theme.name,
+            label: themeOption.name,
             onClick: () => onThemeChange(key as ThemeType)
         }))
     };
 
-    const userMenu = {
+    const userMenu: MenuProps = {
         items: [
             {
                 key: 'profile',
@@ -153,7 +164,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
                     <Menu
                         theme="light"
                         mode="inline"
-                        defaultSelectedKeys={['1']}
+                        selectedKeys={[location.pathname]}
                         items={menuItems}
                     />
                 </Sider>
@@ -173,7 +184,6 @@ const MainLayout: React.FC<MainLayoutProps> = ({
                     width: '100%'
                 }}>
                     <div className="header-left">
-                        styled
                         {isMobile && (
                             <div className="logoContainer" style={{ borderBottom: `1px solid ${token.colorBorder}` }}>
                                 <img

@@ -54,13 +54,22 @@ export const themes: Record<ThemeType, ThemeOption> = {
     },
     golden: {
         name: 'Golden Yellow',
-        config: (mode: ThemeMode) => ({
+        config: (mode: ThemeMode): ThemeTokens => ({
             token: {
                 colorPrimary: '#faad14',
+                colorPrimaryHover: '#ffc53d',
+                colorError: '#ff4d4f',
                 colorBgContainer: mode === 'light' ? '#ffffff' : '#141414',
                 colorBgLayout: mode === 'light' ? '#fffbe6' : '#000000',
                 colorBorder: mode === 'light' ? '#e9edf7' : '#303030',
                 colorText: mode === 'light' ? '#000000' : '#ffffff',
+                colorTextSecondary: mode === 'light' ? 'rgba(0, 0, 0, 0.45)' : 'rgba(255, 255, 255, 0.45)',
+                fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial",
+                fontSize: 14,
+                headerHeight: 64,
+                sidebarWidth: 250,
+                transition: 'all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)',
+                borderRadius: 6
             },
             algorithm: mode === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
         }),
@@ -68,13 +77,22 @@ export const themes: Record<ThemeType, ThemeOption> = {
     },
     royal: {
         name: 'Royal Green',
-        config: (mode: ThemeMode) => ({
+        config: (mode: ThemeMode): ThemeTokens => ({
             token: {
                 colorPrimary: '#52c41a',
+                colorPrimaryHover: '#73d13d',
+                colorError: '#ff4d4f',
                 colorBgContainer: mode === 'light' ? '#ffffff' : '#141414',
                 colorBgLayout: mode === 'light' ? '#f6ffed' : '#000000',
                 colorBorder: mode === 'light' ? '#e9edf7' : '#303030',
                 colorText: mode === 'light' ? '#000000' : '#ffffff',
+                colorTextSecondary: mode === 'light' ? 'rgba(0, 0, 0, 0.45)' : 'rgba(255, 255, 255, 0.45)',
+                fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial",
+                fontSize: 14,
+                headerHeight: 64,
+                sidebarWidth: 250,
+                transition: 'all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)',
+                borderRadius: 6
             },
             algorithm: mode === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
         }),

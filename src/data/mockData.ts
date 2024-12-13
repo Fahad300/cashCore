@@ -1,4 +1,4 @@
-import { ThemeType } from '../config/theme.ts';
+
 
 export interface KpiData {
     title: string;

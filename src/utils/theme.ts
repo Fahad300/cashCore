@@ -1,4 +1,4 @@
-import { ThemeType, ThemeMode } from '../config/theme.ts';
+import { ThemeType, ThemeMode } from '../config/theme';
 
 const THEME_COLOR_KEY = 'theme-color';
 const THEME_MODE_KEY = 'theme-mode';
