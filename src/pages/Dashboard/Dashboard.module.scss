@@ -1,37 +1,99 @@
+@import '../../styles/themes/index.scss';
+
 .dashboard {
   .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
 
-    h1 {
-      margin: 0;
-      font-size: 24px;
-      font-weight: 500;
+    .title {
+      h1 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 500;
+      }
+
+      .subtitle {
+        margin: 8px 0 0;
+        color: var(--color-text-secondary);
+      }
     }
 
-    .subtitle {
-      margin: 8px 0 0;
-      color: rgba(0, 0, 0, 0.45);
+    @media (max-width: 576px) {
+      flex-direction: column;
+      align-items: stretch;
     }
   }
 
-  .statCol {
+  .kpiSection {
+    margin-bottom: 24px;
+
     .statCard {
       height: 100%;
-      transition: all 0.3s;
+      transition: var(--transition);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--border-radius);
 
       &:hover {
         transform: translateY(-4px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .trend {
+        margin-top: 8px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .trendText {
+          color: var(--text-secondary);
+          font-size: 12px;
+        }
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--color-primary), transparent);
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      &:hover::before {
+        opacity: 1;
       }
     }
   }
 
-  .contentRow {
-    margin-top: 24px;
+  .chartsSection {
+    margin-bottom: 24px;
+
+    .chartCard {
+      height: 100%;
+      min-height: 400px;
+    }
   }
 
-  .chartCard,
-  .actionsCard {
-    height: 100%;
+  .tableCard {
+    :global {
+      .ant-table-thead > tr > th {
+        background-color: var(--background-secondary);
+      }
+
+      .ant-table-row:hover {
+        cursor: pointer;
+      }
+    }
   }
 
   @media (max-width: 576px) {

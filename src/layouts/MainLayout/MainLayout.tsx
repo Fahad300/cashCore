@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styled from '@emotion/styled';
 import { Layout, Menu, Button, theme, Dropdown, Input, Badge, Avatar, Space, Grid, FloatButton } from 'antd';
 import {
     MenuFoldOutlined,
@@ -172,10 +173,11 @@ const MainLayout: React.FC<MainLayoutProps> = ({
                     width: '100%'
                 }}>
                     <div className="header-left">
+                        styled
                         {isMobile && (
                             <div className="logoContainer" style={{ borderBottom: `1px solid ${token.colorBorder}` }}>
                                 <img
-                                    src={themeMode === 'dark' ? "/logo-white.png" : "/logo.png"}
+                                    src={themeMode === 'dark' ? "/logo-white.png" : "/logo"}
                                     alt="Logo"
                                     style={{ width: '100%', height: '40px' }}
                                 />
@@ -200,7 +202,6 @@ const MainLayout: React.FC<MainLayoutProps> = ({
                             />
                         )}
                     </div>
-
                     <div className="header-right">
                         <Space size={screens.md ? 16 : 8}>
                             {screens.sm && (

@@ -11,3 +11,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Custom Scrollbar for WebKit Browsers */
+::-webkit-scrollbar {
+  width: 10px;
+  /* Width of the scrollbar */
+  height: 10px;
+  /* Height for horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-layout);
+  /* Background of the track */
+  border-radius: 5px;
+  /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  /* Color of the thumb */
+  border-radius: 5px;
+  /* Rounded corners for thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+  /* Change color on hover */
+}

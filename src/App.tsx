@@ -4,6 +4,7 @@ import MainLayout from './layouts/MainLayout/MainLayout.tsx';
 import Dashboard from './pages/Dashboard/Dashboard.tsx';
 import { themes, ThemeType, ThemeMode } from './config/theme.ts';
 import { getStoredTheme, setStoredTheme } from './utils/theme.ts';
+import { syncThemeTokens } from './utils/themeUtils.ts';
 import './styles/themes/_transitions.scss';
 
 const App = () => {
@@ -21,7 +22,9 @@ const App = () => {
     };
 
     useEffect(() => {
-        // Apply theme class to body for global styles
+        // Sync theme tokens whenever theme changes
+        const currentThemeConfig = themes[currentTheme].config(themeMode);
+        syncThemeTokens(currentThemeConfig);
         document.body.className = `${themes[currentTheme].className} theme-${themeMode}`;
     }, [currentTheme, themeMode]);
 
