@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import MainLayout from './layouts/MainLayout/MainLayout';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Market from './pages/Market/Market';
+import Trading from './pages/Trading/Trading';
 import { themes, ThemeType, ThemeMode } from './config/theme';
 import { getStoredTheme, setStoredTheme } from './utils/theme';
 import { syncThemeTokens } from './utils/themeUtils';
@@ -41,9 +42,10 @@ const App = () => {
                         onThemeModeChange={handleThemeModeChange}
                     >
                         <Routes>
-                            <Route path="/dashboard" element={<Dashboard />} />
+                            <Route path="/" element={<Dashboard />} />
                             <Route path="/market" element={<Market />} />
-                            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+                            <Route path="/trading" element={<Trading />} />
+                            <Route path="*" element={<Navigate to="/" replace />} />
                         </Routes>
                     </MainLayout>
                 </div>

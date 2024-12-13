@@ -1,0 +1,33 @@
+.orderBook {
+    .header {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 8px 0;
+        border-bottom: 1px solid var(--color-border);
+        
+        span {
+            text-align: right;
+            color: var(--color-text-secondary);
+            font-size: 12px;
+        }
+    }
+
+    .orderRow {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 4px 0;
+        
+        span {
+            text-align: right;
+            font-size: 12px;
+        }
+    }
+
+    .asks {
+        margin-bottom: 8px;
+    }
+
+    .bids {
+        margin-top: 8px;
+    }
+} 

@@ -41,7 +41,7 @@ const generatePriceHistory = (basePrice: number): PriceHistory[] => {
     return history;
 };
 
-const generateCandleData = (basePrice: number): CandleData[] => {
+export const generateCandleData = (basePrice: number): CandleData[] => {
     const now = Date.now();
     const data: CandleData[] = [];
     for (let i = 0; i < 24; i++) {

@@ -1,0 +1,14 @@
+.recentTrades {
+    :global {
+        .ant-list-item {
+            padding: 8px 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            
+            span {
+                text-align: right;
+                font-size: 12px;
+            }
+        }
+    }
+} 

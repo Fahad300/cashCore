@@ -19,6 +19,7 @@ interface ThemeTokens extends ThemeConfig {
         transition: string;
         borderRadius: number;
         colorTextSecondary: string;
+        colorSuccess: string;
     }
 }
 
@@ -46,7 +47,8 @@ export const themes: Record<ThemeType, ThemeOption> = {
                 headerHeight: 64,
                 sidebarWidth: 250,
                 transition: 'all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)',
-                borderRadius: 6
+                borderRadius: 6,
+                colorSuccess: '#52c41a'
             },
             algorithm: mode === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
         }),
@@ -69,7 +71,8 @@ export const themes: Record<ThemeType, ThemeOption> = {
                 headerHeight: 64,
                 sidebarWidth: 250,
                 transition: 'all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)',
-                borderRadius: 6
+                borderRadius: 6,
+                colorSuccess: '#52c41a'
             },
             algorithm: mode === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
         }),
@@ -92,7 +95,8 @@ export const themes: Record<ThemeType, ThemeOption> = {
                 headerHeight: 64,
                 sidebarWidth: 250,
                 transition: 'all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)',
-                borderRadius: 6
+                borderRadius: 6,
+                colorSuccess: '#52c41a'
             },
             algorithm: mode === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
         }),

@@ -1,0 +1,59 @@
+.tradingForm {
+    .orderType {
+        margin-bottom: 16px;
+        text-align: center;
+    }
+
+    .tradeSide {
+        margin-bottom: 24px;
+        text-align: center;
+
+        :global {
+            .ant-radio-group {
+                width: 100%;
+
+                .ant-radio-button-wrapper {
+                    width: 50%;
+                }
+            }
+        }
+    }
+
+    .sliderSection {
+        margin: 16px 0;
+    }
+
+    .buyButton {
+        &:global(.ant-radio-button-wrapper-checked) {
+            background-color: var(--color-success);
+            border-color: var(--color-success);
+        }
+
+        &:global(.ant-btn) {
+            background-color: var(--color-success);
+            border-color: var(--color-success);
+
+            &:hover {
+                background-color: var(--color-success-hover);
+                border-color: var(--color-success-hover);
+            }
+        }
+    }
+
+    .sellButton {
+        &:global(.ant-radio-button-wrapper-checked) {
+            background-color: var(--color-error);
+            border-color: var(--color-error);
+        }
+
+        &:global(.ant-btn) {
+            background-color: var(--color-error);
+            border-color: var(--color-error);
+
+            &:hover {
+                background-color: var(--color-error-hover);
+                border-color: var(--color-error-hover);
+            }
+        }
+    }
+} 

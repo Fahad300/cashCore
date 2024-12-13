@@ -13,7 +13,8 @@ import {
     SunOutlined,
     MoonOutlined,
     MenuOutlined,
-    LineChartOutlined
+    LineChartOutlined,
+    SwapOutlined
 } from '@ant-design/icons';
 import { themes, ThemeType, ThemeMode } from '../../config/theme';
 import MobileMenu from './MobileMenu';
@@ -54,16 +55,22 @@ const MainLayout: React.FC<MainLayoutProps> = ({
 
     const menuItems = [
         {
-            key: '/dashboard',
+            key: '/',
             icon: <DashboardOutlined />,
             label: 'Dashboard',
-            onClick: () => navigate('/dashboard')
+            onClick: () => navigate('/')
         },
         {
             key: '/market',
             icon: <LineChartOutlined />,
             label: 'Market',
             onClick: () => navigate('/market')
+        },
+        {
+            key: '/trading',
+            icon: <SwapOutlined />,
+            label: 'Trading',
+            onClick: () => navigate('/trading')
         }
     ];
 
