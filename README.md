@@ -1,4 +1,69 @@
-# Getting Started with Create React App
+# Finance Dashboard
+
+A modern, feature-rich cryptocurrency trading and finance management dashboard built with React, TypeScript, and Ant Design.
+
+![Dashboard Preview](./preview.png)
+
+## 🌟 Features
+
+### Authentication & Security
+- Complete authentication flow (Login, Register, Forgot Password)
+- Two-factor authentication
+- Email verification
+- Secure session management
+
+### Trading & Finance
+- Real-time cryptocurrency market data
+- Advanced trading interface
+- Order book visualization
+- Transaction history
+- Wallet management
+- Loan management
+- Liquidity pools
+
+### User Experience
+- Responsive design for all devices
+- Dark/Light theme support
+- Multiple color themes
+- Smooth animations and transitions
+- Interactive charts and graphs
+- Real-time data updates
+
+### Technical Features
+- TypeScript for type safety
+- Modern React with hooks
+- Efficient state management
+- Modular SCSS styling
+- Responsive layouts
+- Component-based architecture
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
+- Git
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/finance-dashboard.git
+cd finance-dashboard
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start the development server:
+
+```bash
+npm start
+```
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
