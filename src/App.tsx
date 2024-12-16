@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ConfigProvider } from 'antd';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import AppPreloader from './components/common/AppPreloader';
 import MainLayout from './layouts/MainLayout/MainLayout';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Market from './pages/Market/Market';
@@ -29,6 +30,7 @@ import VerifyEmail from './pages/Auth/VerifyEmail';
 const App = () => {
   const [currentTheme, setCurrentTheme] = useState<ThemeType>(getStoredTheme().themeType);
   const [themeMode, setThemeMode] = useState<ThemeMode>(getStoredTheme().themeMode);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleThemeChange = (newTheme: ThemeType) => {
     setCurrentTheme(newTheme);
@@ -41,11 +43,22 @@ const App = () => {
   };
 
   useEffect(() => {
-    // Sync theme tokens whenever theme changes
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
     const currentThemeConfig = themes[currentTheme].config(themeMode);
     syncThemeTokens(currentThemeConfig);
     document.body.className = `${themes[currentTheme].className} theme-${themeMode}`;
   }, [currentTheme, themeMode]);
+
+  if (isLoading) {
+    return <AppPreloader themeMode={themeMode} />;
+  }
 
   return (
     <ConfigProvider theme={themes[currentTheme].config(themeMode)}>

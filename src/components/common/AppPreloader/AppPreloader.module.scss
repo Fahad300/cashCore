@@ -1,0 +1,169 @@
+.appPreloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: all 0.3s ease;
+
+    &.light {
+        background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+
+        .loadingText {
+            color: #1a365d;
+        }
+
+        .circles {
+            div {
+                border: 3px solid #1890ff;
+            }
+        }
+    }
+
+    &.dark {
+        background: linear-gradient(135deg, #1a365d 0%, #153e75 100%);
+
+        .loadingText {
+            color: #ffffff;
+        }
+
+        .circles {
+            div {
+                border: 3px solid #1890ff;
+            }
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+        transform: translateY(-5%);
+    }
+
+    .logo {
+        width: 220px;
+        height: 45px;
+        position: relative;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 8px rgba(24, 144, 255, 0.3));
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #1890ff, transparent);
+            border-radius: 2px;
+        }
+
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .circles {
+        position: relative;
+        width: 100px;
+        height: 100px;
+
+        div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            opacity: 0.7;
+            border-left-color: transparent !important;
+            border-right-color: transparent !important;
+            animation: rotate var(--duration) var(--timing) infinite;
+
+            @for $i from 1 through 3 {
+                &:nth-child(#{$i}) {
+                    --duration: #{2 + $i * 0.2}s;
+                    --timing: cubic-bezier(0.84, 0.12, 0.16, 0.88);
+                    width: #{100% - ($i - 1) * 20};
+                    height: #{100% - ($i - 1) * 20};
+                }
+            }
+        }
+    }
+
+    .loadingText {
+        font-size: 1.1rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+        opacity: 0.9;
+        animation: pulse 1.5s ease-in-out infinite;
+
+        span {
+            display: inline-block;
+            animation: dotting 1.5s infinite;
+            
+            @for $i from 1 through 3 {
+                &:nth-child(#{$i}) {
+                    animation-delay: #{$i * 0.2}s;
+                }
+            }
+        }
+    }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0px);
+    }
+    50% { 
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.9;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes dotting {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 768px) {
+    .appPreloader {
+        .logo {
+            width: 180px;
+        }
+
+        .circles {
+            width: 80px;
+            height: 80px;
+        }
+
+        .loadingText {
+            font-size: 1rem;
+        }
+    }
+} 
