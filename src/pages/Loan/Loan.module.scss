@@ -1,0 +1,53 @@
+.loan {
+    height: 100%;
+    background-color: var(--color-bg-container);
+
+    .content {
+        padding: 24px;
+        height: 100%;
+        overflow: auto;
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .statistics {
+            margin-bottom: 24px;
+
+            :global(.ant-card) {
+                height: 100%;
+            }
+        }
+    }
+
+    .termsCard {
+        height: 100%;
+
+        :global(.ant-descriptions-item-label) {
+            width: 140px;
+        }
+
+        .terms {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--color-border);
+
+            h5 {
+                margin-bottom: 16px;
+            }
+
+            ul {
+                padding-left: 20px;
+                margin: 0;
+
+                li {
+                    margin-bottom: 8px;
+                    color: var(--color-text-secondary);
+                }
+            }
+        }
+    }
+} 

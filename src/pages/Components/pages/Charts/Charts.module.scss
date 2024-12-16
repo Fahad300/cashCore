@@ -1,0 +1,13 @@
+.chartsPage {
+    :global {
+        .ant-typography {
+            margin-bottom: 24px;
+        }
+
+        .ant-card {
+            .ant-card-head {
+                border-bottom: 1px solid var(--color-border);
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+.typographyPage {
+    :global {
+        .ant-typography {
+            &:not(:last-child) {
+                margin-bottom: 24px;
+            }
+        }
+
+        .ant-card {
+            .ant-card-head {
+                border-bottom: 1px solid var(--color-border);
+            }
+
+            .ant-space {
+                width: 100%;
+            }
+        }
+    }
+} 

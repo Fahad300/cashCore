@@ -1,0 +1,322 @@
+.wallet {
+    height: 100%;
+    background-color: var(--color-bg-container);
+
+    .content {
+        padding: 24px;
+        height: 100%;
+        overflow: auto;
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+
+            .balanceCards {
+                display: flex;
+                gap: 16px;
+                margin-top: 16px;
+
+                .balanceCard {
+                    min-width: 380px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    border: 1px solid var(--color-border);
+                    position: relative;
+                    overflow: hidden;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 4px;
+                        background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+                        opacity: 0;
+                        transition: opacity 0.3s ease;
+                    }
+
+                    &:hover {
+                        transform: translateY(-4px);
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+                        &::before {
+                            opacity: 1;
+                        }
+                    }
+
+                    :global(.ant-card-body) {
+                        padding: 20px;
+                    }
+
+                    h3 {
+                        margin: 8px 0;
+                        font-size: 24px;
+                        background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+
+                    .assetList {
+                        margin-top: 12px;
+                        padding-top: 12px;
+                        border-top: 1px solid var(--color-border);
+                    }
+
+                    .assetRow {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        margin-top: 8px;
+                        padding: 4px 0;
+
+                        img {
+                            border-radius: 50%;
+                            width: 24px;
+                            height: 24px;
+                        }
+
+                        &:hover {
+                            background-color: var(--color-bg-container-hover);
+                        }
+                    }
+
+                    // Different colors for each card
+                    &:nth-child(1) {
+                        &::before {
+                            background: linear-gradient(90deg, #1890ff, #69c0ff);
+                        }
+                        h3 {
+                            background: linear-gradient(90deg, #1890ff, #69c0ff);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                        }
+                    }
+
+                    &:nth-child(2) {
+                        &::before {
+                            background: linear-gradient(90deg, #52c41a, #95de64);
+                        }
+                        h3 {
+                            background: linear-gradient(90deg, #52c41a, #95de64);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                        }
+                    }
+
+                    &:nth-child(3) {
+                        &::before {
+                            background: linear-gradient(90deg, #722ed1, #b37feb);
+                        }
+                        h3 {
+                            background: linear-gradient(90deg, #722ed1, #b37feb);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                        }
+                    }
+                }
+            }
+        }
+
+        .paymentMethodsCard {
+            margin-bottom: 24px;
+
+            .paymentMethods {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 16px;
+
+                .methodCard {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    
+                    .methodIcon {
+                        font-size: 24px;
+                        margin-right: 12px;
+                        color: var(--color-primary);
+                    }
+
+                    .methodActions {
+                        display: flex;
+                        gap: 8px;
+                    }
+
+                    &.addCard {
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: 1px dashed var(--color-border);
+                        background-color: transparent;
+
+                        &:hover {
+                            border-color: var(--color-primary);
+                        }
+
+                        :global(.ant-card-body) {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+
+        .exchangeCard {
+            margin-bottom: 24px;
+            max-width: 600px;
+
+            .exchangeForm {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+
+                .exchangeInput {
+                    flex: 1;
+                }
+
+                .exchangeButton {
+                    align-self: center;
+                    transform: rotate(90deg);
+                }
+            }
+        }
+    }
+}
+
+.exchangeSection {
+    margin-bottom: 24px;
+
+    .exchangeCard {
+        .exchangeForm {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            .exchangeInput {
+                flex: 1;
+            }
+
+            .exchangeButton {
+                align-self: center;
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    .videoCard {
+        .videoContent {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+
+            @media (max-width: 768px) {
+                flex-direction: column;
+            }
+
+            .videoWrapper {
+                flex: 1;
+                position: relative;
+                padding-bottom: 28.125%; /* 16:9 aspect ratio but half height */
+                height: 0;
+                overflow: hidden;
+                border-radius: var(--border-radius);
+                min-width: 300px;
+
+                @media (max-width: 768px) {
+                    padding-bottom: 56.25%; /* Full 16:9 aspect ratio on mobile */
+                }
+
+                iframe {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .videoInfo {
+                flex: 1;
+                min-width: 300px;
+
+                h4 {
+                    margin-bottom: 8px;
+                }
+
+                .videoTags {
+                    margin-top: 16px;
+                }
+            }
+        }
+    }
+}
+
+// Add styles for payment method modal
+.methodSelector {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+} 
+
+// Update payment method card styles
+.paymentMethodsCard {
+    .methodCard {
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        &.addCard {
+            &:hover {
+                border-color: var(--color-primary);
+                
+                .ant-btn {
+                    border-color: var(--color-primary);
+                    color: var(--color-primary);
+                }
+            }
+        }
+    }
+} 
+
+.transactionCard {
+    :global {
+        .ant-card-extra {
+            .ant-radio-group {
+                margin-bottom: 16px;
+            }
+        }
+
+        .ant-table {
+            .ant-table-thead > tr > th {
+                background-color: var(--color-bg-container);
+            }
+        }
+    }
+
+    .statusTag {
+        text-transform: capitalize;
+        
+        &.completed {
+            color: var(--color-success);
+            background-color: var(--color-success-bg);
+        }
+        
+        &.pending {
+            color: var(--color-warning);
+            background-color: var(--color-warning-bg);
+        }
+        
+        &.failed {
+            color: var(--color-error);
+            background-color: var(--color-error-bg);
+        }
+    }
+}

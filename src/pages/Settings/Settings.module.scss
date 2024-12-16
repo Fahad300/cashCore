@@ -1,0 +1,13 @@
+.settings {
+    padding: 24px;
+
+    .settingCard {
+        margin-top: 24px;
+    }
+
+    :global {
+        .ant-form-item-label {
+            font-weight: 500;
+        }
+    }
+} 

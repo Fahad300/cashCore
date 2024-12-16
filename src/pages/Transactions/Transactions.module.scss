@@ -1,0 +1,47 @@
+.transactions {
+    height: 100%;
+    background-color: var(--color-bg-container);
+
+    .content {
+        padding: 24px;
+        height: 100%;
+        overflow: auto;
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+
+            .activeFilters {
+                margin-top: 8px;
+            }
+        }
+    }
+}
+
+.transactionDetail {
+    .timeline {
+        margin-top: 24px;
+
+        h4 {
+            margin: 24px 0 16px;
+        }
+    }
+
+    :global {
+        .ant-descriptions {
+            .ant-descriptions-item-label {
+                width: 150px;
+            }
+        }
+
+        .ant-timeline {
+            margin-top: 16px;
+        }
+    }
+
+    .ant-descriptions {
+        margin-bottom: 16px;
+    }
+} 

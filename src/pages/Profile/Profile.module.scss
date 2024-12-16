@@ -1,0 +1,14 @@
+.profile {
+    padding: 24px;
+
+    .profileCard {
+        margin-top: 24px;
+    }
+
+    .avatarUpload {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+} 

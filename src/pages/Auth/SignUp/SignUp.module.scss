@@ -1,0 +1,22 @@
+.socialButtons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 16px 0;
+
+    button {
+        min-width: 120px;
+    }
+}
+
+.loginLink {
+    text-align: center;
+    margin-top: 24px;
+}
+
+:global {
+    .ant-form-item-explain-error {
+        font-size: 12px;
+    }
+}

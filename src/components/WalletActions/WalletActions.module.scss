@@ -1,0 +1,46 @@
+.depositModal {
+    .networkSelect {
+        margin-bottom: 24px;
+
+        :global(.ant-select) {
+            width: 100%;
+            margin-top: 8px;
+        }
+    }
+
+    .qrSection {
+        display: flex;
+        justify-content: center;
+        margin: 24px 0;
+    }
+
+    .addressSection {
+        margin-bottom: 24px;
+
+        .addressBox {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+    }
+
+    .warning {
+        padding: 12px;
+        background-color: rgba(250, 173, 20, 0.1);
+        border-radius: var(--border-radius);
+    }
+}
+
+.withdrawForm {
+    .availableBalance {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 24px;
+    }
+
+    .percentButtons {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 24px;
+    }
+} 
